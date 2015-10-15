@@ -4,13 +4,16 @@ Rails.application.routes.draw do
 
   get 'static_pages/index'
 
-  resources :tasks
   resources :clients
-  resources :projects
+  resources :projects do
+    resources :tasks
+  end
+  resources :users
 
   get    'login'   => 'sessions#new'
+  get    'signup'  => 'users#new'
   post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy resources :users'
+  delete 'logout'  => 'sessions#destroy'
   
   root 'static_pages#index'
 end
