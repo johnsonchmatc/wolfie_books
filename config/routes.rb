@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
   get 'static_pages/index'
 
   resources :tasks
   resources :clients
   resources :projects
+  resources :users
   
   root 'static_pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
