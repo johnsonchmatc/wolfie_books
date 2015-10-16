@@ -1,29 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <h1><%= @project.title %></h1>
+  <h3><%= @project.client.name %></h3>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="row">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Description</h3>
+    </div>
+    <div class="panel-body">
+        <%= @project.description %>
+    </div>
+  </div>
+  <p>
+    <strong>Start date:</strong> <%= @project.start_date %>
+  </br>
+    <strong>End date:</strong> <%= @project.end_date %>
+  </p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<div class="row">
+  <%= link_to 'Edit Project', edit_project_path(@project) %> | <%= link_to 'Back', projects_path %> | <%= link_to 'New Task', new_project_task_path(@project.id) %>
+</div>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @project.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @project.end_date %>
-</p>
-
-<p>
-  <strong>Client:</strong>
-  <%= @project.client_id %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="row">
+  <h3>Task log</h3> 
+  <table class="table table-striped table-hover ">
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Hours</th>
+        <th>Date</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @project.tasks.each do |task| %>
+      <tr>
+        <td><%= task.employee_name %></td>
+        <td><%= task.time %></td>
+        <td><%= task.date %></td>
+        <td><%= task.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
