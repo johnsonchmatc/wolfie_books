@@ -1,0 +1,4 @@
+development:
+  smtp_server: mail.clients.johnsonch.com
+  smtp_user: railsclass@clients.johnsonch.com
+  smtp_password: W0lfi32015
