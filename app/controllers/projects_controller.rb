@@ -1,11 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user 
+  before_action :logged_in_user
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /projects/1

@@ -1,12 +1,12 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user
-  
+
 
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /clients/1
