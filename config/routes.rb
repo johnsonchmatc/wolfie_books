@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'static_pages/index'
-
+  
   resources :clients
   resources :projects do
     resources :tasks
