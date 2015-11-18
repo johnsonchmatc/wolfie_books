@@ -56,6 +56,8 @@ GEM
     execjs (2.6.0)
     faker (1.5.0)
       i18n (~> 0.5)
+    figaro (1.1.1)
+      thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -146,6 +148,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -156,6 +159,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   faker
+  figaro
   jbuilder (~> 2.0)
   jquery-rails
   pg
@@ -168,3 +172,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate (~> 3.0.6)

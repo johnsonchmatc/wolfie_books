@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :tasks
   end
   resources :users
+  resources :account_activations, only: [:edit]
  
   get    'login'   => 'sessions#new'
   get    'signup'  => 'users#new'
