@@ -1,44 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @client.contact_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @client.phone %>
-</p>
-
-<p>
-  <strong>Contact email:</strong>
-  <%= @client.contact_email %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @client.street %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @client.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @client.state %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @client.postal_code %>
-</p>
+<div class="row">
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
+</div>
+
+<div class="row">
+  <div class="col-md-10">
+    <div class="row">
+    <h2><%= @client.name %></h2>
+    <p>
+      <%= @client.contact_name %><br />
+      <%= @client.phone %><br />
+      <%= @client.contact_email %>
+    </p>
+    <p>
+      <%= @client.street %><br />
+      <%= @client.city %>,<%= @client.state %> <%= @client.postal_code %>
+    </p>
+    </div>
+
+    <div class="row">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Start date/End Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @client.projects.each do |project| %>
+          <tr>
+            <td><%= link_to project.title, project %></td>
+            <td><%= link_to project.start_date, project %>/<%= link_to project.end_date, project %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+
+</div>
