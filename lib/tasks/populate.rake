@@ -1,19 +1,21 @@
 namespace :fake do
   desc "generating fake data"
   task :all_data => [:environment, :users, :clients, :projects, :tasks] do
-  end 
-  
+  end
+
   desc "generating fake users"
   task :users => [:environment] do
     50.times do
       User.create(name: Faker::Name.name,
                   email: Faker::Internet.email,
+                  activated_at: Time.now,
+                  activated: true,
                   password: 'test123456',
                   password_confirmation: 'test123456')
     end
-  end 
-  
-  
+  end
+
+
   desc "generating fake clients"
   task :clients => [:environment] do
     50.times do
@@ -27,8 +29,8 @@ namespace :fake do
                     postal_code: Faker::Address.postcode)
     end
   end
-  
-  
+
+
   desc "generating fake projects"
   task :projects => [:environment, :clients] do
     client_ids = Client.all.collect { |c| c.id }
@@ -39,8 +41,8 @@ namespace :fake do
                      end_date: rand(1..20).days.from_now,
                      client_id: client_ids.shuffle.first)
     end
-  end 
-  
+  end
+
   desc "generating fake tasks"
   task :tasks => [:environment, :users, :projects] do
     project_ids = Project.all.collect { |p| p.id }
