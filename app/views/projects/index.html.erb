@@ -11,22 +11,11 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.title, project %></td>
-        <td><%= link_to "#{project.start_date}/#{project.end_date}", project %></td>
-        <td><%= link_to project.client.name, project %></td>
-      </tr>
-    <% end %>
+  <tbody id="projects">
+    
   </tbody>
 </table>
 
-<br>
+<img src='http://www.fostersystems.com/ccdata/images/spinner.gif' id='next_page_spinner' />
 
-
-<div class="row">
-  <div class="col-md-12">
-    <%= will_paginate @projects %>
-  </div>
-</div>
+<%= javascript_include_tag 'pagination' %>

@@ -42,5 +42,17 @@
 
     </div>
   </div>
-
+  
+  <div class="col-md-2" id="weather-data">
+    <h3>Weather</h3>
+    <%= image_tag("http://www.fostersystems.com/ccdata/images/spinner.gif", :id => 'next_page_spinner') %>
+  </div>
 </div>
+
+<!-- at the bottom of the page -->
+<%= javascript_include_tag 'weather' %>
+
+<script>
+  var url =<%=raw "'http://api.openweathermap.org/data/2.5/weather?zip=#{@client.postal_code},us&appid=#{ENV['weather_api']}'" %>
+  window.getWeather(url);
+</script>
