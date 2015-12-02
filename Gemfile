@@ -14,6 +14,9 @@ gem 'bcrypt'
 gem 'figaro'
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv', '~> 2.0', require: false
 
 group :development, :test do
   gem 'byebug'
@@ -24,6 +27,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
   gem 'rails_12factor'
 end
