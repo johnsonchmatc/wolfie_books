@@ -27,6 +27,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.4.2'
   gem 'rails_12factor'
 end
