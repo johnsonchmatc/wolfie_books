@@ -16,7 +16,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-gem 'capistrano-rbenv', '~> 2.0', require: false
+gem 'capistrano-rbenv', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
